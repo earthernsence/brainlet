@@ -1,4 +1,6 @@
+import { Footer } from "./_components/Footer";
 import { Header } from "./_components/Header";
+import { Heroes } from "./_components/Heroes";
 
 const MarketingPage = () => (
   <main className="min-h-full flex flex-col">
@@ -7,7 +9,11 @@ const MarketingPage = () => (
                         md:justify-start"
     >
       <Header />
+      <Heroes />
     </section>
+    <footer>
+      <Footer />
+    </footer>
   </main>
 );
 

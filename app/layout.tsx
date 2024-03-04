@@ -3,7 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "600"] });
 
 export const metadata: Metadata = {
   title: "Epic Notes App",
