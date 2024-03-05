@@ -9,6 +9,14 @@ export const Logo = () => (
       height={40}
       width={40}
       alt="Logo"
+      className="dark:hidden"
+    />
+    <Image
+      src="/no_image_dark.png"
+      height={40}
+      width={40}
+      alt="Logo"
+      className="hidden dark:block"
     />
     <p className="font-semibold text-center">
       Epic Notes
