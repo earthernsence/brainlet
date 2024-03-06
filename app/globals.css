@@ -4,11 +4,12 @@
 
 ::-webkit-scrollbar {
   width: 1.25rem;
+  background-color: #36393e;
 }
 
 ::-webkit-scrollbar-thumb {
   background-clip: content-box;
-  background-color: #36393e;
+  background-color: black;
   border: 0.2rem solid transparent;
   border-radius: 0.5rem;
 }
