@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ElementRef, useEffect, useRef, useState } from "react";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 import { toast } from "sonner";
 import { useMediaQuery } from "usehooks-ts";
 
@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 
 import { Item } from "./Item";
 import { UserItem } from "./UserItem";
+import { DocumentList } from "./DocumentList";
 
 export const Navigation = () => {
   // This is the breakpoint for Tailwind's md class; we use it here to automatically
@@ -22,7 +23,6 @@ export const Navigation = () => {
   // automatically collapse the sidebar so that it doesn't continue to take up unneeded space
   const pathname = usePathname();
 
-  const documents = useQuery(api.documents.get);
   const create = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
@@ -160,7 +160,7 @@ export const Navigation = () => {
           </div>
         </div>
         <div className="mt-4">
-          {documents?.map(document => (<p key={document._id}>{document.title}</p>))}
+          <DocumentList />
         </div>
         <div
           onMouseDown={handleMouseDown}
