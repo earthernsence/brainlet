@@ -1,15 +1,18 @@
 import "./globals.css";
 
+import { Toaster } from "sonner";
+
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
+
 import { ConvexClientProvider } from "@/components/providers/convex";
 import { ThemeProvider } from "@/components/providers/theme";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600"] });
 
 export const metadata: Metadata = {
-  title: "Epic Notes App",
-  description: "To take epic notes",
+  title: "Brainlet",
+  description: "Your brain, your way",
 };
 
 export default function RootLayout({
@@ -28,6 +31,7 @@ export default function RootLayout({
             disableTransitionOnChange
             storageKey="epic-theme-251"
           >
+            <Toaster position="bottom-center" />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>

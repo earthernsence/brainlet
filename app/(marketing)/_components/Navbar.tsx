@@ -1,5 +1,7 @@
 "use client";
 
+import { SignInButton, UserButton } from "@clerk/clerk-react";
+import Link from "next/link";
 import { useConvexAuth } from "convex/react";
 
 import { cn } from "@/lib/utils";
@@ -7,7 +9,6 @@ import { useScroll } from "@/hooks/use-scroll";
 
 import { Button } from "@/components/ui/Button";
 import { Logo } from "./Logo";
-import { SignInButton } from "@clerk/clerk-react";
 import { Spinner } from "@/components/spinner";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -40,6 +41,16 @@ export const Navbar = () => {
             </SignInButton>
           </>
         )}
+        {isAuthenticated && !isLoading && (
+          <>
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/documents">
+                Enter your brain
+              </Link>
+            </Button>
+            <UserButton afterSignOutUrl="/" />
+          </>
+        ) }
         <ThemeToggle />
       </div>
     </div>

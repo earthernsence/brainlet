@@ -19,7 +19,7 @@ export const Logo = () => (
       className="hidden dark:block"
     />
     <p className="font-semibold text-center">
-      Epic Notes
+      Brainlet
     </p>
   </div>
 );
