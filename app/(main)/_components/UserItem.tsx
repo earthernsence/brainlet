@@ -2,13 +2,13 @@
 
 import { SignOutButton, useUser } from "@clerk/clerk-react";
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/Avatar";
 import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+  DropdownMenuTrigger } from "@/components/ui/DropdownMenu";
 import { ChevronsLeftRight } from "lucide-react";
 
 export const UserItem = () => {

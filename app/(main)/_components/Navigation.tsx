@@ -1,8 +1,9 @@
 "use client";
 
 import React, { ElementRef, useEffect, useRef, useState } from "react";
-import { useMediaQuery } from "usehooks-ts";
 import { useMutation, useQuery } from "convex/react";
+import { toast } from "sonner";
+import { useMediaQuery } from "usehooks-ts";
 
 import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -12,7 +13,6 @@ import { cn } from "@/lib/utils";
 
 import { Item } from "./Item";
 import { UserItem } from "./UserItem";
-import { toast } from "sonner";
 
 export const Navigation = () => {
   // This is the breakpoint for Tailwind's md class; we use it here to automatically
@@ -141,13 +141,13 @@ export const Navigation = () => {
           </div>
           <div>
             <UserItem />
-            <Item 
+            <Item
               label="search..."
               icon={Search}
               isSearch
               onClick={() => {}}
             />
-            <Item 
+            <Item
               label="settings"
               icon={Settings}
               onClick={() => {}}
