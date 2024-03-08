@@ -1,19 +1,28 @@
 "use client";
 
 import React, { ElementRef, useEffect, useRef, useState } from "react";
-import { useMutation } from "convex/react";
 import { toast } from "sonner";
 import { useMediaQuery } from "usehooks-ts";
+import { useMutation } from "convex/react";
 
-import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings, Trash } from "lucide-react";
+import { useParams, usePathname } from "next/navigation";
 
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger
+} from "@/components/ui/Popover";
 import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
+import { useSearch } from "@/hooks/use-search";
+import { useSettings } from "@/hooks/use-settings";
 
-import { Item } from "./Item";
-import { UserItem } from "./UserItem";
+import { Bin } from "./Bin";
 import { DocumentList } from "./DocumentList";
+import { Item } from "./Item";
+import { Navbar } from "./Navbar";
+import { UserItem } from "./UserItem";
 
 export const Navigation = () => {
   // This is the breakpoint for Tailwind's md class; we use it here to automatically
@@ -22,7 +31,9 @@ export const Navigation = () => {
   // Same thing here. When a user clicks on a document on the sidebar on mobile, we want to
   // automatically collapse the sidebar so that it doesn't continue to take up unneeded space
   const pathname = usePathname();
-
+  const search = useSearch();
+  const settings = useSettings();
+  const params = useParams();
   const create = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
@@ -145,12 +156,12 @@ export const Navigation = () => {
               label="search..."
               icon={Search}
               isSearch
-              onClick={() => {}}
+              onClick={search.onOpen}
             />
             <Item
               label="settings"
               icon={Settings}
-              onClick={() => {}}
+              onClick={settings.onOpen}
             />
             <Item
               onClick={handleCreate}
@@ -161,6 +172,25 @@ export const Navigation = () => {
         </div>
         <div className="mt-4">
           <DocumentList />
+          <Item
+            onClick={handleCreate}
+            label="new neuron"
+            icon={PlusCircle}
+          />
+          <Popover>
+            <PopoverTrigger className="w-full mt-4">
+              <Item
+                label="bin"
+                icon={Trash}
+              />
+            </PopoverTrigger>
+            <PopoverContent
+              side={isMobile ? "bottom" : "right"}
+              className="p-4 w-72"
+            >
+              <Bin />
+            </PopoverContent>
+          </Popover>
         </div>
         <div
           onMouseDown={handleMouseDown}
@@ -178,9 +208,16 @@ export const Navigation = () => {
           isMobile && "left-0 w-full"
         )}
       >
-        <nav className="bg-transparent px-3 py-2 w-full">
-          {isCollapsed && <MenuIcon role="button" onClick={resetWidth} className="h-6 w-6 text-muted-foreground" />}
-        </nav>
+        {Boolean(params.documentId) ? (
+          <Navbar
+            isCollapsed={isCollapsed}
+            onResetWidth={resetWidth}
+          />
+        ) : (
+          <nav className="bg-transparent px-3 py-2 w-full">
+            {isCollapsed && <MenuIcon role="button" onClick={resetWidth} className="h-6 w-6 text-muted-foreground" />}
+          </nav>
+        )}
       </div>
     </>
   );

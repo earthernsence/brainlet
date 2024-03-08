@@ -6,7 +6,6 @@ import { Avatar, AvatarImage } from "@/components/ui/Avatar";
 import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger } from "@/components/ui/DropdownMenu";
 import { ChevronsLeftRight } from "lucide-react";

@@ -10,7 +10,7 @@ import { useScroll } from "@/hooks/use-scroll";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "./Logo";
 import { Spinner } from "@/components/Spinner";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Navbar = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();

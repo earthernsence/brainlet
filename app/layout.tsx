@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 
 import { ConvexClientProvider } from "@/components/providers/convex";
+import { ModalProvider } from "@/components/providers/modal";
 import { ThemeProvider } from "@/components/providers/theme";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600"] });
@@ -32,6 +33,7 @@ export default function RootLayout({
             storageKey="epic-theme-251"
           >
             <Toaster position="bottom-center" />
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
