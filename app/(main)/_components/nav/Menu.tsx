@@ -17,7 +17,7 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/DropdownMenu";
 import { Button } from "@/components/ui/Button";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/ui/Skeleton";
 
 interface MenuProps {
   documentId: Id<"documents">

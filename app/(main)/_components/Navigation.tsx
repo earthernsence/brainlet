@@ -6,7 +6,7 @@ import { useMediaQuery } from "usehooks-ts";
 import { useMutation } from "convex/react";
 
 import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings, Trash } from "lucide-react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 
 import {
   Popover,
@@ -34,6 +34,7 @@ export const Navigation = () => {
   const search = useSearch();
   const settings = useSettings();
   const params = useParams();
+  const router = useRouter();
   const create = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
@@ -117,7 +118,8 @@ export const Navigation = () => {
   const handleCreate = () => {
     // This grabs the date in format YYYY-MM-DD in an effort to automatically create some organisation
     const d = new Date().toISOString().substring(0, 10);
-    const promise = create({ title: `${d} Untitled` });
+    const promise = create({ title: `${d} Untitled` })
+      .then(documentId => router.push(`/documents/${documentId}`));
 
     toast.promise(promise, {
       loading: "Creating a new neuron...",

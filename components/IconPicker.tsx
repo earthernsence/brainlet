@@ -39,7 +39,7 @@ export const IconPicker = ({
         <EmojiPicker
           height={350}
           theme={theme}
-          onEmojiClick={d => onchange(d.emoji)}
+          onEmojiClick={d => onChange(d.emoji)}
         />
       </PopoverContent>
     </Popover>

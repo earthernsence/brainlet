@@ -1,4 +1,5 @@
 import "./globals.css";
+import "@blocknote/core/style.css";
 
 import { Toaster } from "sonner";
 
@@ -8,6 +9,8 @@ import type { Metadata } from "next";
 import { ConvexClientProvider } from "@/components/providers/convex";
 import { ModalProvider } from "@/components/providers/modal";
 import { ThemeProvider } from "@/components/providers/theme";
+
+import { EdgeStoreProvider } from "@/lib/edgestore";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600"] });
 
@@ -25,17 +28,19 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ConvexClientProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-            storageKey="epic-theme-251"
-          >
-            <Toaster position="bottom-center" />
-            <ModalProvider />
-            {children}
-          </ThemeProvider>
+          <EdgeStoreProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+              storageKey="epic-theme-251"
+            >
+              <Toaster position="bottom-center" />
+              <ModalProvider />
+              {children}
+            </ThemeProvider>
+          </EdgeStoreProvider>
         </ConvexClientProvider>
       </body>
     </html>

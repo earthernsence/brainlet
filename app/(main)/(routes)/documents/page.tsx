@@ -4,6 +4,7 @@ import Image from "next/image";
 import { PlusCircle } from "lucide-react";
 import { toast } from "sonner";
 import { useMutation } from "convex/react";
+import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/clerk-react";
 
 import { api } from "@/convex/_generated/api";
@@ -13,13 +14,15 @@ import { Button } from "@/components/ui/Button";
 // TODO: Replace placeholder images
 
 const DocumentsPage = () => {
+  const router = useRouter();
   const { user } = useUser();
   const create = useMutation(api.documents.create);
 
   const onCreate = () => {
     // This grabs the date in format YYYY-MM-DD in an effort to automatically create some organisation
     const d = new Date().toISOString().substring(0, 10);
-    const promise = create({ title: `${d} Untitled` });
+    const promise = create({ title: `${d} Untitled` })
+      .then(documentId => router.push(`/documents/${documentId}`));
 
     toast.promise(promise, {
       loading: "Creating a new neuron...",

@@ -2,15 +2,16 @@
 
 import { ElementRef, useRef, useState } from "react";
 import { ImageIcon, Smile, X } from "lucide-react";
-import { useMutation } from "convex/react";
 import TextareaAutosize from "react-textarea-autosize";
+import { useMutation } from "convex/react";
 
 import { api } from "@/convex/_generated/api";
 import { Doc } from "@/convex/_generated/dataModel";
 
+import { useImage } from "@/hooks/use-image";
+
 import { Button } from "@/components/ui/Button";
 import { IconPicker } from "@/components/IconPicker";
-import { removeIcon } from "@/convex/documents";
 
 interface ToolbarProps {
   initial: Doc<"documents">,
@@ -26,7 +27,9 @@ export const Toolbar = ({
   const [value, setValue] = useState(initial.title);
 
   const update = useMutation(api.documents.update);
-  const removeIcon = useMutation(api.documents.removeIcon);
+  const remove = useMutation(api.documents.removeIcon);
+
+  const image = useImage();
 
   const enableInput = () => {
     if (preview) return;
@@ -65,7 +68,7 @@ export const Toolbar = ({
   };
 
   const onRemoveIcon = () => {
-    removeIcon({
+    remove({
       id: initial._id
     });
   };
@@ -112,7 +115,7 @@ export const Toolbar = ({
             className="text-muted-foreground text-xs"
             variant="outline"
             size="sm"
-            onClick={() => {}}
+            onClick={image.onOpen}
           >
             <ImageIcon className="h-4 w-4 mr-2" />
             add cover
@@ -126,7 +129,8 @@ export const Toolbar = ({
           onKeyDown={onKeyDown}
           value={value}
           onChange={e => onInput(e.target.value)}
-          className="text-5xl bg-transparent font-bold break-words outline-none text-[#3F3F3F] dark:text-[#CFCFCF] resize-none"
+          className="text-5xl font-bold break-words text-[#3F3F3F] dark:text-[#CFCFCF]
+                    resize-none bg-transparent outline-none"
         />
       ) : (
         <div

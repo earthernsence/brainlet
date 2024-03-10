@@ -16,7 +16,7 @@ import {
 import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
 import { Id } from "@/convex/_generated/dataModel";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/ui/Skeleton";
 
 interface ItemProps {
   label: string;
@@ -53,7 +53,7 @@ export const Item = ({
   ) => {
     event.stopPropagation();
     if (!id) return;
-    const promise = archive({ id });
+    const promise = archive({ id }).then(() => router.push("/documents"));
 
     toast.promise(promise, {
       loading: "Binning neuron...",
@@ -126,7 +126,7 @@ export const Item = ({
         </div>
       ) : (
         <Icon
-          className="shrink-0 h-[18px] mr-2 text-muted-foreground"
+          className="shrink-0 h-[18px] w-[18px] mr-2 text-muted-foreground"
         />
       )}
       <span className="truncate">
