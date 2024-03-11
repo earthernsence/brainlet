@@ -14,7 +14,9 @@ import {
   CommandItem,
   CommandList
 } from "@/components/ui/Command";
+
 import { useSearch } from "@/hooks/use-search";
+
 import { api } from "@/convex/_generated/api";
 
 export const Search = () => {
@@ -58,7 +60,7 @@ export const Search = () => {
         <CommandEmpty>no results found...</CommandEmpty>
         <CommandGroup heading="neurons">
           {documents?.map(doc => (
-            <CommandItem key={doc._id} value={`${doc._id}-${doc.title}`} title={doc.title} onSelect={onSelect}>
+            <CommandItem key={doc._id} value={`${doc._id}`} title={doc.title} onSelect={onSelect}>
               {doc.icon ? (
                 <p className="mr-2 text-[18px]">
                   {doc.icon}
