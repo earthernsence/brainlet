@@ -45,7 +45,8 @@ export const Banner = ({
   };
 
   return (
-    <div className="w-full bg-rose-500 dark:bg-rose-600 text-center text-sm p-2 text-white flex items-center gap-x-2 justify-center">
+    <div className="w-full text-center text-sm p-2 text-white flex items-center gap-x-2 justify-center
+                    bg-rose-500 dark:bg-rose-600">
       <p>
         This page is currently binned.
       </p>
@@ -53,7 +54,8 @@ export const Banner = ({
         size="sm"
         onClick={onRestore}
         variant="outline"
-        className="border-white bg-transparent hover:bg-primary/5 text-white hover:text-white p-1 px-2 h-auto font-normal"
+        className="border-white text-white hover:text-white p-1 px-2 h-auto font-normal
+                  bg-transparent hover:bg-primary/5"
       >
         Restore neuron
       </Button>
@@ -61,7 +63,8 @@ export const Banner = ({
         <Button
           size="sm"
           variant="outline"
-          className="border-white bg-transparent hover:bg-primary/5 text-white hover:text-white p-1 px-2 h-auto font-normal"
+          className="border-white text-white hover:text-white p-1 px-2 h-auto font-normal
+                    bg-transparent hover:bg-primary/5"
         >
         Delete forever
         </Button>
