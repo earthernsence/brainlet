@@ -5,7 +5,7 @@ import { useConvexAuth } from "convex/react";
 
 import { Navigation } from "./_components/Navigation";
 import { Search } from "@/components/Search";
-import { Spinner } from "@/components/Spinner";
+import Spinner from "@/components/Spinner";
 
 const MainLayout = ({
   children

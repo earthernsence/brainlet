@@ -16,7 +16,7 @@ import {
 import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
 import { Id } from "@/convex/_generated/dataModel";
-import { Skeleton } from "@/components/ui/Skeleton";
+import Skeleton from "@/components/ui/Skeleton";
 
 interface ItemProps {
   label: string;

@@ -8,7 +8,7 @@ import { Doc } from "@/convex/_generated/dataModel";
 
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { Skeleton } from "@/components/ui/Skeleton";
+import Skeleton from "@/components/ui/Skeleton";
 
 interface TitleProps {
   initial: Doc<"documents">

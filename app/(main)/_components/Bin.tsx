@@ -11,7 +11,7 @@ import { Id } from "@/convex/_generated/dataModel";
 
 import { ConfirmModal } from "@/components/modals/ConfirmModal";
 import { Input } from "@/components/ui/Input";
-import { Spinner } from "@/components/Spinner";
+import Spinner from "@/components/Spinner";
 
 export const Bin = () => {
   const router = useRouter();
