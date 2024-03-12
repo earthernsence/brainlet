@@ -17,9 +17,6 @@ const config = {
         "2xl": "1400px",
       },
     },
-    colors: {
-      "dark": "#1f1f1f"
-    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -55,6 +52,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "dark": "#1f1f1f"
       },
       borderRadius: {
         lg: "var(--radius)",
