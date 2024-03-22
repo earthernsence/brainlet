@@ -253,7 +253,8 @@ export const update = mutation({
     content: v.optional(v.string()),
     coverImage: v.optional(v.string()),
     icon: v.optional(v.string()),
-    isPublished: v.optional(v.boolean())
+    isPublished: v.optional(v.boolean()),
+    tags: v.optional(v.array(v.string()))
   },
   handler: async(ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -318,6 +319,60 @@ export const removeImage = mutation({
 
     const document = await ctx.db.patch(args.id, {
       coverImage: undefined
+    });
+
+    return document;
+  }
+});
+
+export const getUserTags = query({
+  handler: async ctx => {
+    const identity = await ctx.auth.getUserIdentity();
+
+    if (!identity) {
+      throw new Error("Not authenticated!");
+    }
+
+    const id = identity.subject;
+
+    const documents = await ctx.db.query("documents")
+      .withIndex("by_user_tags")
+      .filter(q => q.eq(id, q.field("userId")))
+      .filter(q => q.neq(q.field("tags"), undefined))
+      .collect();
+
+    const tags: string[] = [];
+
+    documents.forEach(document => {
+      if (document.tags) tags.push(...document.tags);
+    });
+
+    return tags;
+  }
+});
+
+export const removeTag = mutation({
+  args: {
+    id: v.id("documents"),
+    tag: v.string()
+  },
+  handler: async(ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+
+    if (!identity) throw new Error("Unauthenticated");
+
+    const userId = identity.subject;
+
+    const existingDocument = await ctx.db.get(args.id);
+
+    if (!existingDocument) throw new Error("not found");
+
+    if (existingDocument.userId !== userId) throw new Error("unauthorised");
+
+    const currentTags: Array<string> = await ctx.db.get(args.id).then(doc => doc?.tags) ?? [];
+
+    const document = await ctx.db.patch(args.id, {
+      tags: currentTags?.filter(tag => tag !== args.tag)
     });
 
     return document;

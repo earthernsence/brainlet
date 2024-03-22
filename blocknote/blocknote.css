@@ -1,0 +1,34 @@
+.tag {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.25rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  background-color: #36393e;
+  color: #696969;
+  border: #696969 solid 1px;
+  border-radius: 0.625rem;
+}
+
+.tag:hover {
+  color: #797979;
+  border: #797979 solid 1px;
+}
+
+.document-link {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: underline;
+  color: skyblue;
+  opacity: 80%;
+  font-size: 1rem;
+  line-height: 1rem;
+  text-underline-offset: 2px;
+}
+
+.document-link:hover {
+  opacity: 100%;
+}

@@ -64,6 +64,7 @@ const DocumentIdPage = ({
         <Toolbar preview initial={document} />
         <Editor
           editable={false}
+          documentId={document._id}
           onChange={onChange}
           initialContent={document.content}
         />
