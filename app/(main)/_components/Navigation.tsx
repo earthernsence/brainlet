@@ -145,7 +145,7 @@ export const Navigation = () => {
             className={cn(
               `absolute top-3 right-2 h-6 w-6
               text-muted-foreground rounded-sm
-              opacity-0 group-hover/sidebar:opacity-100 hover:bg-neutral-300 dark:hover:bg-neutral-600
+              opacity-0 group-hover/sidebar:opacity-100 hover:bg-slate-300 dark:hover:bg-slate-600
               transition`,
               isMobile && "opacity-100"
             )}

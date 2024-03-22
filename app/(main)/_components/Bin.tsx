@@ -11,7 +11,7 @@ import { Id } from "@/convex/_generated/dataModel";
 
 import { ConfirmModal } from "@/components/modals/ConfirmModal";
 import { Input } from "@/components/ui/Input";
-import { Spinner } from "@/components/Spinner";
+import Spinner from "@/components/Spinner";
 
 export const Bin = () => {
   const router = useRouter();
@@ -93,14 +93,14 @@ export const Bin = () => {
               <div
                 onClick={e => onRestore(e, doc._id)}
                 role="button"
-                className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"
+                className="rounded-sm p-2 hover:bg-slate-200 dark:hover:bg-slate-600"
               >
                 <Undo className="h-4 w-4 text-muted-foreground" />
               </div>
               <ConfirmModal onConfirm={() => onRemove(doc._id)}>
                 <div
                   role="button"
-                  className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"
+                  className="rounded-sm p-2 hover:bg-slate-200 dark:hover:bg-slate-600"
                 >
                   <Trash className="h-4 w-4 text-muted-foreground" />
                 </div>

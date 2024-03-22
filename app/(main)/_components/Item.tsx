@@ -16,7 +16,7 @@ import {
 import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
 import { Id } from "@/convex/_generated/dataModel";
-import { Skeleton } from "@/components/ui/Skeleton";
+import Skeleton from "@/components/ui/Skeleton";
 
 interface ItemProps {
   label: string;
@@ -112,7 +112,7 @@ export const Item = ({
       {Boolean(id) && (
         <div
           role="button"
-          className="h-full rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1"
+          className="h-full rounded-sm hover:bg-slate-300 dark:hover:bg-slate-600 mr-1"
           onClick={handleExpand}
         >
           <ChevronIcon
@@ -145,7 +145,7 @@ export const Item = ({
               <div
                 role="button"
                 className="opacity-0 h-full ml-auto rounded-sm
-                          group-hover:opacity-100 hover:bg-neutral-300 dark:hover:bg-neutral-600"
+                          group-hover:opacity-100 hover:bg-slate-300 dark:hover:bg-slate-600"
               >
                 <MoreHorizontal className="h-4 w-4 text-muted-foreground" />
               </div>
@@ -170,7 +170,7 @@ export const Item = ({
             role="button"
             onClick={onCreate}
             className="opacity-0 h-full ml-auto rounded-sm
-                      group-hover:opacity-100 hover:bg-neutral-300 dark:hover:bg-neutral-600"
+                      group-hover:opacity-100 hover:bg-slate-300 dark:hover:bg-slate-600"
           >
             <Plus className="h-4 w-4 text-muted-foreground" />
           </div>

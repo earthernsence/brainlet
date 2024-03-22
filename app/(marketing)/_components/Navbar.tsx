@@ -9,7 +9,7 @@ import { useScroll } from "@/hooks/use-scroll";
 
 import { Button } from "@/components/ui/Button";
 import { Logo } from "./Logo";
-import { Spinner } from "@/components/Spinner";
+import Spinner from "@/components/Spinner";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Navbar = () => {

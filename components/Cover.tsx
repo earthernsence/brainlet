@@ -14,7 +14,7 @@ import { Id } from "@/convex/_generated/dataModel";
 import { useImage } from "@/hooks/use-image";
 
 import { Button } from "@/components/ui/Button";
-import { Skeleton } from "@/components/ui/Skeleton";
+import Skeleton from "@/components/ui/Skeleton";
 
 interface CoverImageProps {
   url?: string;

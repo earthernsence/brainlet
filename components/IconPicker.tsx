@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/Popover";
 
 interface IconPickerProps {
+  // Interfaces are just like this. I don't know man
+  // eslint-disable-next-line no-unused-vars
   onChange: (icon: string) => void;
   children: React.ReactNode;
   asChild?: boolean;

@@ -17,6 +17,8 @@ import { DocumentLink } from "@/blocknote/DocumentLink";
 import { Tag } from "@/blocknote/Tag";
 
 interface EditorProps {
+  // Interfaces are just like this. I don't know man
+  // eslint-disable-next-line no-unused-vars
   onChange: (val: string) => void;
   initialContent?: string,
   editable?: boolean;
@@ -45,7 +47,8 @@ const Editor = ({
     return res.url;
   };
 
-  const editor: BlockNoteEditor = useCreateBlockNote({
+  const editor: typeof schema.BlockNoteEditor = useCreateBlockNote({
+    schema,
     initialContent: initialContent ? JSON.parse(initialContent) as PartialBlock[] : undefined,
     uploadFile: handleUpload
   });
