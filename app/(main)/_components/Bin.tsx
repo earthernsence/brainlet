@@ -100,9 +100,9 @@ export const Bin = () => {
               <ConfirmModal onConfirm={() => onRemove(doc._id)}>
                 <div
                   role="button"
-                  className="rounded-sm p-2 hover:bg-slate-200 dark:hover:bg-slate-600"
+                  className="rounded-sm p-2 hover:bg-slate-200 dark:hover:bg-slate-600 group"
                 >
-                  <Trash className="h-4 w-4 text-muted-foreground" />
+                  <Trash className="h-4 w-4 text-muted-foreground group-hover:text-red-500" />
                 </div>
               </ConfirmModal>
             </div>

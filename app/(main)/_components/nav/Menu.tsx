@@ -51,7 +51,7 @@ export const Menu = ({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-60" align="end" alignOffset={8} forceMount>
-        <DropdownMenuItem onClick={onArchive}>
+        <DropdownMenuItem onClick={onArchive} className="w-full cursor-pointer focus:text-red-500">
           <Trash className="h-4 w-4 mr-2" />
           Bin
         </DropdownMenuItem>

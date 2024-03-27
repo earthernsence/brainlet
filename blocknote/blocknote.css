@@ -1,0 +1,16 @@
+.bn-document-link {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1rem;
+  line-height: 1rem;
+  opacity: 0.8;
+  color: skyblue;
+  text-decoration: underline;
+
+  text-underline-offset: 2px;
+}
+
+.bn-document-link:hover {
+  opacity: 1;
+}

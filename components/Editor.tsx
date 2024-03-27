@@ -54,7 +54,7 @@ const Editor = ({
 
   const editor: typeof schema.BlockNoteEditor = useCreateBlockNote({
     schema,
-    initialContent: initialContent ? JSON.parse(initialContent) as PartialBlock[] : undefined,
+    initialContent: initialContent ? (JSON.parse(initialContent) as PartialBlock[]) : undefined,
     uploadFile: handleUpload
   });
 
@@ -99,7 +99,7 @@ const Editor = ({
         onChange={updateEditor}
       >
         <SuggestionMenuController
-          triggerCharacter={"#"}
+          triggerCharacter={"$"}
           // eslint-disable-next-line require-await
           getItems={async query =>
             filterSuggestionItems(getLinkMenuItems(editor), query)

@@ -88,7 +88,7 @@ export const Toolbar = ({
             variant="outline"
             size="icon"
           >
-            <X className="h-4 w-4" />
+            <X className="h-4 w-4 group-hover/icon:text-red-500" />
           </Button>
         </div>
       )}
