@@ -59,7 +59,9 @@ const Editor = ({
   });
 
   const updateEditor = () => {
-    onChange(JSON.stringify(editor.document, null, 2));
+    if (editable) {
+      onChange(JSON.stringify(editor.document, null, 2));
+    }
   };
 
   const documents = useQuery(api.documents.get);

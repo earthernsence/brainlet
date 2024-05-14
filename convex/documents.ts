@@ -167,8 +167,8 @@ export const get = query({
   handler: async ctx => {
     const identity = await ctx.auth.getUserIdentity();
 
-    if (!identity) {
-      throw new Error("Not authenticated!");
+    if (!identity || identity === null) {
+      return [];
     }
 
     const documents = await ctx.db.query("documents").collect();
